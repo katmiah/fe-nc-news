@@ -1,0 +1,85 @@
+* {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: #272343;
+}
+.article-button {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  list-style-type: none;
+}
+header {
+  text-align: center;
+}
+.title {
+  background-color: #e3f6f5;
+  border: solid #bae8e8 2px;
+}
+.nav ul {
+  list-style-type: none;
+  background-color: #ffffff;
+  border: solid #e3f6f5 2px;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+}
+.nav li {
+  float: left;
+}
+
+.nav a {
+  color: #272343;
+  text-decoration: none;
+  padding: 15px;
+  display: block;
+  text-align: center;
+}
+.nav a:hover {
+  background-color: #bae8e8;
+}
+
+footer {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+}
+footer a {
+  text-decoration: none;
+  padding: 15px;
+  display: block;
+  text-align: center;
+  color: #83d6d6;
+}
+
+.button {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
+    5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 30px;
+}
+
+.button:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .button-54 {
+    padding: 0.25em 0.75em;
+  }
+}
