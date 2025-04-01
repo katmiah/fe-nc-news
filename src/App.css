@@ -105,3 +105,9 @@ footer a {
   width: 40%;
   border-radius: 15%;
 }
+
+.comment-box {
+  background-color: #e3f6f5;
+  border: solid #bae8e8 2px;
+  margin-top: 10px;
+}
