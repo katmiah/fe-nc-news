@@ -54,11 +54,11 @@ footer a {
 }
 
 .button {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   font-size: 16px;
   letter-spacing: 2px;
   text-decoration: none;
-  text-transform: uppercase;
   color: #000;
   cursor: pointer;
   border: 3px solid;
@@ -77,9 +77,31 @@ footer a {
   top: 5px;
   left: 5px;
 }
+.art-button {
+  list-style-type: none;
+}
 
-@media (min-width: 768px) {
-  .button-54 {
-    padding: 0.25em 0.75em;
+@media (max-width: 768px) {
+  .button {
+    font-size: 14px;
+    padding: 8px 16px;
+    width: 100%;
   }
+}
+
+@media (max-width: 768px) {
+  .button img {
+    width: 100%;
+  }
+}
+.article-content {
+  padding: 20px;
+}
+
+.article-content img {
+  display: block;
+  padding: 20px;
+  margin: auto;
+  width: 40%;
+  border-radius: 15%;
 }
