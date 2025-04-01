@@ -10,7 +10,6 @@ function ContentList() {
     axios
       .get("https://nc-news-pidx.onrender.com/api/articles")
       .then((response) => {
-        console.log(response.data);
         setArticles(response.data.articles);
         setIsLoading(true);
       })
