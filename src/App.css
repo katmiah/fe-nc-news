@@ -59,7 +59,7 @@ footer a {
   font-size: 16px;
   letter-spacing: 2px;
   text-decoration: none;
-  color: #000;
+  color: #272343;
   cursor: pointer;
   border: 3px solid;
   padding: 0.25em 0.5em;
@@ -110,4 +110,36 @@ footer a {
   background-color: #e3f6f5;
   border: solid #bae8e8 2px;
   margin-top: 10px;
+  margin-bottom: 10px;
+}
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: solid #e3f6f5 2px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: #bae8e8;
+  color: black;
+  padding: 12px 20px;
+  border: solid #bae8e8 2px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #ffffff;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #e3f6f5;
+  padding: 20px;
 }

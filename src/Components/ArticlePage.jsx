@@ -10,6 +10,9 @@ function ArticlePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
   const [vote, setVote] = useState(0);
+  const [newComment, setNewComment] = useState("");
+  const [username, setUserName] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -58,6 +61,33 @@ function ArticlePage() {
       });
   };
 
+  const postComment = (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+
+    axios
+      .post(
+        `https://nc-news-pidx.onrender.com/api/articles/${article_id}/comments`,
+        {
+          username,
+          body: newComment,
+        }
+      )
+      .then((response) => {
+        setComments((prevComments) => [response.data.comment, ...prevComments]);
+        setNewComment("");
+        setUserName("");
+        alert("Comment posted. Thank you for contributing!");
+      })
+      .catch(() => {
+        setError("Could not post comment. Please try again later.");
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+  };
+
   if (isLoading) {
     return <p>Currently Loading...</p>;
   }
@@ -90,6 +120,27 @@ function ArticlePage() {
           <p>No comments yet. Be the first to comment!</p>
         )}
       </div>
+      <form className="comment-form" onSubmit={postComment}>
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          value={username}
+          onChange={(element) => setUserName(element.target.value)}
+          required
+        />
+        <label htmlFor="comment">Share Your Thoughts!</label>
+        <input
+          type="text"
+          id="comment"
+          value={newComment}
+          onChange={(element) => setNewComment(element.target.value)}
+          required
+        />
+        <button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Posting..." : "Post"}
+        </button>
+      </form>
     </div>
   );
 }
