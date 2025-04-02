@@ -111,10 +111,17 @@ function ArticlePage() {
       <button onClick={handleIncrement}>Like</button>
       <button onClick={handleDecrement}>Dislike</button>
       <h4>Comments ({comments.length})</h4>
+
+      <Comments comments={comments} setComments={setComments} />
+
       <div>
         {comments.length > 0 ? (
           comments.map((comment) => (
-            <Comments key={comment.comment_id} comment={comment} />
+            <Comments
+              key={comment.comment_id}
+              comment={comment}
+              setComments={setComments}
+            />
           ))
         ) : (
           <p>No comments yet. Be the first to comment!</p>
