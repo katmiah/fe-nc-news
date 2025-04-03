@@ -4,25 +4,19 @@ import { useParams } from "react-router";
 
 function Comments({ comments = [], setComments }) {
   const [error, setError] = useState();
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    console.log("hello");
-  });
+  const [isDeleting, setIsDeleting] = useState(null);
 
   const deleteComment = (commentId) => {
-    setIsDeleting(true);
+    setIsDeleting(commentId);
 
     axios
       .delete(`https://nc-news-pidx.onrender.com/api/comments/${commentId}`)
       .then(() => {
-        console.log(`Deleted comment with ID: ${commentId}`);
-
         setComments((prevComments) => {
           const updatedComments = prevComments.filter(
             (comment) => comment.comment_id !== commentId
           );
-          return updatedComments;
+          return Array.isArray(updatedComments) ? updatedComments : [];
         });
 
         setIsDeleting(false);
@@ -36,7 +30,7 @@ function Comments({ comments = [], setComments }) {
 
   return (
     <div className="comment-box">
-      {comments.length ? (
+      {comments.length > 0 ? (
         comments.map((comment) => (
           <div key={comment.comment_id}>
             <p>
@@ -46,7 +40,7 @@ function Comments({ comments = [], setComments }) {
             <p>{comment.body}</p>
             <button
               onClick={() => deleteComment(comment.comment_id)}
-              disabled={isDeleting}
+              disabled={isDeleting === comment.comment_id}
             >
               {isDeleting ? "Deleting..." : "Delete"}
             </button>
