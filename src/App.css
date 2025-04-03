@@ -143,3 +143,10 @@ input[type="submit"]:hover {
   background-color: #e3f6f5;
   padding: 20px;
 }
+.article_header {
+  text-align: center;
+}
+.topic_list {
+  text-align: center;
+  list-style-type: none;
+}
