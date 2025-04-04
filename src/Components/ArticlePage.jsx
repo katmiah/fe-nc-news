@@ -81,7 +81,7 @@ function ArticlePage() {
         alert("Comment posted. Thank you for contributing!");
       })
       .catch(() => {
-        setError("Could not post comment. Please try again later.");
+        setError(true);
       })
       .finally(() => {
         setIsSubmitting(false);
@@ -92,10 +92,7 @@ function ArticlePage() {
     return <p>Currently Loading...</p>;
   }
   if (error) {
-    return <p>Error: {error}</p>;
-  }
-  if (!article) {
-    return <p>No article found.</p>;
+    return <p>Article does not not exist. {error}</p>;
   }
 
   return (

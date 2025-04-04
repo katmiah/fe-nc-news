@@ -19,10 +19,9 @@ function Topics() {
         setArticles(response.data.articles);
         setLoading(false);
       })
-      .catch((error) => {
-        console.error("Error fetching the articles", error);
-        setError("Error fetching the articles. Please try again later.");
+      .catch(() => {
         setLoading(false);
+        setError(true);
       });
   }, [topicName]);
 
@@ -34,7 +33,7 @@ function Topics() {
     return <p>Currently loading...</p>;
   }
   if (error) {
-    return <p>{error}</p>;
+    return <p>Something went wrong! {error} </p>;
   }
 
   return (

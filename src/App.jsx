@@ -9,7 +9,15 @@ import ArticlePage from "./Components/ArticlePage";
 import Topics from "./Components/Topics";
 import "./App.css";
 
+function InvalidRoute() {
+  return <p>Page Not Found! The route you requested doesn't exist.</p>;
+}
 function App() {
+  const [error, setError] = useState();
+
+  if (error) {
+    return <p>{error}</p>;
+  }
   return (
     <div>
       <Header />
@@ -19,6 +27,7 @@ function App() {
         <Route path="/articles" element={<ContentList />} />
         <Route path="/articles/:article_id" element={<ArticlePage />} />
         <Route path="/topics/:topicName" element={<Topics />} />
+        <Route path="*" element={<InvalidRoute />} />
       </Routes>
       <Footer />
     </div>

@@ -7,7 +7,8 @@ function ContentList() {
   const [articles, setArticles] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
-  const sortBy = searchParams.get("sort_by") || "created_at"; // Default to date
+  const [error, setError] = useState();
+  const sortBy = searchParams.get("sort_by") || "created_at";
   const order = searchParams.get("order") || "desc";
 
   useEffect(() => {
@@ -19,8 +20,8 @@ function ContentList() {
         setArticles(response.data.articles);
         setIsLoading(true);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        setError(true);
       })
       .finally(() => {
         setIsLoading(false);
@@ -40,6 +41,9 @@ function ContentList() {
 
   if (isLoading) {
     return <p> Currently Loading... </p>;
+  }
+  if (error) {
+    return <p>Something went wrong! {error}</p>;
   }
 
   return (
