@@ -94,9 +94,6 @@ function ArticlePage() {
   if (error) {
     return <p>Error: {error}</p>;
   }
-  if (!article) {
-    return <p>No article found.</p>;
-  }
 
   return (
     <div className="article-content">
